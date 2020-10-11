@@ -1,0 +1,12 @@
+实验RabbitMq消息队列的使用
+
+1.采用docker安装rabbitmq  #docker pull rabbitmq:3.8.9-management-alpine
+2.Pull完镜像运行镜像      #docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq01 [镜像id]
+3.访问你安装的主机ip:15672,默认username:guest,password:guest。
+4.rabbitmq的3种交换机（1）direct:直连交换机 1-->1
+                     （2）fanout:广播型 1-->多
+					 （3）topic :模糊匹配  #:匹配多个字符  $：匹配单个字符
+					 
+5.创建交换机
+6.创建队列
+7.交换机绑定队列和路由键
