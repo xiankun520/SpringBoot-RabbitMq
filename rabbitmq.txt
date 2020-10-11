@@ -5,8 +5,25 @@
 3.访问你安装的主机ip:15672,默认username:guest,password:guest。
 4.rabbitmq的3种交换机（1）direct:直连交换机 1-->1
                      （2）fanout:广播型 1-->多
-					 （3）topic :模糊匹配  #:匹配多个字符  $：匹配单个字符
+		     （3）topic :模糊匹配  #:匹配多个字符  $：匹配单个字符
 					 
 5.创建交换机
 6.创建队列
 7.交换机绑定队列和路由键
+
+注意在序列化时，需要自定义messageConvertor
+
+@Configuration
+public class RabbitMqMessageConvetor {
+    @Bean
+    public MessageConverter messageConverter(){
+        return new Jackson2JsonMessageConverter();
+    }
+}
+
+<!--坑，jackson绑定规则，导入的依赖-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.5</version>
+        </dependency>
